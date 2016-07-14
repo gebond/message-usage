@@ -6,7 +6,15 @@ class NumberBook:
         self.__numbers = []
 
     def addNumber(self, numberItem):
-        self.__numbers.append(numberItem)
+        alreadyExists = False
+        for num in self.__numbers:
+            if num.getNumber == numberItem.getNumber():
+                alreadyExists = True
+        if not alreadyExists:
+            self.__numbers.append(numberItem)
+            print("succesful added [" + numberItem.getNumber + "]")
+        else:
+            print("already exist [" + numberItem.getNumber + "]")
 
 
     def showNumbers(self):
