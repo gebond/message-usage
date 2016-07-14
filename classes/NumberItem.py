@@ -11,3 +11,4 @@ class NumberItem:
         return self.__number
 
     def setProvided(self, value):
+        self.__provided = value
