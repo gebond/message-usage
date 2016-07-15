@@ -1,4 +1,4 @@
-from classes import NumberBook
+from classes.NumberBook import NumberBook
 from classes.NumberItem import NumberItem
 
 
@@ -9,13 +9,22 @@ class NumberManager:
     def __init__(self):
         self.__numberBook = NumberBook()
 
-    def readNumbers(self, filename, pathname):
-        print("start processinf file: " + filename + ".txt")
+    def readNumbers(self, filename, pathname, delimiter=','):
+
+        print("start processing file: " + filename + ".txt")
+
         with open(pathname + filename + ".txt", "r") as searchfile:
             for line in searchfile:
-                number = NumberItem(line)
-
-                #self.__numberBook.addNumber(number)
+                lineItems = line.split(delimiter)
+                for item in lineItems:
+                    if len(item) == 11:
+                        if item.isdigit():
+                            number = NumberItem(item)
+                            self.__numberBook.addNumber(number)
+                    if len(item) == 12:
+                        if item[1:].isdigit():
+                            number = NumberItem(item[1:])
+                            self.__numberBook.addNumber(number)
         print("Result is:")
         self.__numberBook.showNumbers()
 

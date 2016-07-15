@@ -4,6 +4,8 @@ class NumberItem:
     __provided = None
 
     def __init__(self, number):
+        if number[0] == "7":
+            number = "8" + number[1:]
         self.__number = number
         self.__provided = False
 

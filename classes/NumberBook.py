@@ -1,3 +1,4 @@
+from classes.NumberItem import NumberItem
 class NumberBook:
 
     __numbers = None
@@ -8,15 +9,15 @@ class NumberBook:
     def addNumber(self, numberItem):
         alreadyExists = False
         for num in self.__numbers:
-            if num.getNumber == numberItem.getNumber():
+            if num.getNumber() == numberItem.getNumber():
                 alreadyExists = True
         if not alreadyExists:
             self.__numbers.append(numberItem)
-            print("succesful added [" + numberItem.getNumber + "]")
+            print("succesful added " + numberItem.getNumber())
         else:
-            print("already exists [" + numberItem.getNumber + "]")
+            print("already exists " + numberItem.getNumber())
 
 
     def showNumbers(self):
         for num in self.__numbers:
-            print(num)
+            print(num.getNumber())
