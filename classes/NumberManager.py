@@ -17,14 +17,23 @@ class NumberManager:
             for line in searchfile:
                 lineItems = line.split(delimiter)
                 for item in lineItems:
+                    if item == '\n':
+                        continue
+                    print("Process: " + item)
                     if len(item) == 11:
                         if item.isdigit():
                             number = NumberItem(item)
+                            print("\t -> ok")
                             self.__numberBook.addNumber(number)
+                            continue
                     if len(item) == 12:
                         if item[1:].isdigit():
                             number = NumberItem(item[1:])
+                            print("\t -> ok")
                             self.__numberBook.addNumber(number)
+                            continue
+                    print("\t -> fail")
+
         print("Result is:")
         self.__numberBook.showNumbers()
 

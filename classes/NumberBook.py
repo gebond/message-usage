@@ -7,15 +7,16 @@ class NumberBook:
         self.__numbers = []
 
     def addNumber(self, numberItem):
-        alreadyExists = False
         for num in self.__numbers:
             if num.getNumber() == numberItem.getNumber():
-                alreadyExists = True
-        if not alreadyExists:
+                print("\t -> already exists " + numberItem.getNumber())
+                break
+            if num.getNumber()[0] is not "8":
+                print("\t -> suspecious number! " + numberItem.getNumber())
+
             self.__numbers.append(numberItem)
-            print("succesful added " + numberItem.getNumber())
-        else:
-            print("already exists " + numberItem.getNumber())
+            print("\t -> added " + numberItem.getNumber())
+
 
 
     def showNumbers(self):
