@@ -14,11 +14,9 @@ class NumberBook:
             self.__numbers.append(numberItem)
             print("succesful added [" + numberItem.getNumber + "]")
         else:
-            print("already exist [" + numberItem.getNumber + "]")
+            print("already exists [" + numberItem.getNumber + "]")
 
 
     def showNumbers(self):
         for num in self.__numbers:
             print(num)
-
-
