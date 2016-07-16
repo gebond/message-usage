@@ -4,8 +4,11 @@ class NumberItem:
     __provided = None
 
     def __init__(self, number):
-        if number[0] == "7":
-            number = "8" + number[1:]
+
+        number = self.correctSymbols(number)
+        number = self.correctNumber(number)
+        number
+
         self.__number = number
         self.__provided = False
 
@@ -14,3 +17,27 @@ class NumberItem:
 
     def setProvided(self, value):
         self.__provided = value
+
+    def correctSymbols(self, number):
+        if number[len(number)-1] == '\n':
+            number = number[:len(number)-1]
+        index = 0
+        for char in number:
+            if char == 'b':
+                number = number[:index] + "5" + number[index+1:]
+            if char == '?':
+                number = number[:index] + "2" + number[index+1:]
+            if char == '/':
+                number = number[:index] + "7" + number[index+1:]
+            if char == '.':
+                number = number[:index] + number[index+1:]
+            index += 1
+        return number
+
+    def correctNumber(self, number):
+        if len(number) == 10:
+            number = "8" + number
+
+        if number[0] == "7" and len(number) == 11:
+            number = "8" + number[1:]
+        return number

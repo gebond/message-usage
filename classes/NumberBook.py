@@ -17,11 +17,11 @@ class NumberBook:
             if num.getNumber() == number.getNumber():
                 print("\t -> already exists " + number.getNumber())
                 return False
-        if number.getNumber()[0] is not "8":
-            print("\t -> suspecious number! " + number.getNumber())
-            return False
         return True
 
     def showNumbers(self):
+        counter = 0
         for num in self.__numbers:
-            print(num.getNumber())
+            counter += 1
+            print("# " + str(counter) + " " + num.getNumber())
+        print("total: " + str(counter) + " nums")

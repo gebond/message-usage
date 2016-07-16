@@ -9,31 +9,34 @@ class NumberManager:
     def __init__(self):
         self.__numberBook = NumberBook()
 
-    def readNumbers(self, filename, pathname, delimiter=','):
+    def readNumbers(self, filename, pathname, delimiter):
 
         print("start processing file: " + filename + ".txt")
 
-        with open(pathname + filename + ".txt", "r") as searchfile:
+        with open(pathname + filename + ".txt", "r", encoding="utf-8") as searchfile:
             for line in searchfile:
-                lineItems = line.split(delimiter)
-                for item in lineItems:
+                lineSpaceItems = line.split(delimiter)
+                for item in lineSpaceItems:
                     if item == '\n':
                         continue
-                    print("Process: " + item)
-                    if len(item) == 11:
-                        if item.isdigit():
-                            number = NumberItem(item)
-                            print("\t -> ok")
-                            self.__numberBook.addNumber(number)
-                            continue
-                    if len(item) == 12:
-                        if item[1:].isdigit():
-                            number = NumberItem(item[1:])
-                            print("\t -> ok")
-                            self.__numberBook.addNumber(number)
-                            continue
-                    print("\t -> fail")
+                    self.processItem(item)
+
+                lineTabItems = line.split("\t")
+                for item in lineTabItems:
+                    if item == '\n':
+                        continue
+                    self.processItem(item)
 
         print("Result is:")
         self.__numberBook.showNumbers()
 
+    def processItem(self, itemLine):
+        print("in progress: " + itemLine)
+
+        if len(itemLine) > 8 and len(itemLine) < 14:
+            number = NumberItem(itemLine)
+            print("\t -> ok len=" + str(len(itemLine)) + " try to add")
+            if number is not None:
+                self.__numberBook.addNumber(number)
+
+        print("\t -> fail - no handler")
