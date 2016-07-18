@@ -7,7 +7,7 @@ class NumberItem:
 
         number = self.correctSymbols(number)
         number = self.correctNumber(number)
-        number
+        number = self.validateAllDigits(number)
 
         self.__number = number
         self.__provided = False
@@ -41,3 +41,9 @@ class NumberItem:
         if number[0] == "7" and len(number) == 11:
             number = "8" + number[1:]
         return number
+
+    def validateAllDigits(self, number):
+        if number.isdigit():
+            return number
+        else:
+            return "00000000001"
