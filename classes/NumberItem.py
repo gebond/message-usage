@@ -40,10 +40,14 @@ class NumberItem:
 
         if number[0] == "7" and len(number) == 11:
             number = "8" + number[1:]
+
+        if len(number) < 10:
+            number = "00000000001"
+
         return number
 
     def validateAllDigits(self, number):
-        if number.isdigit():
+        if str(number).isdigit():
             return number
         else:
             return "00000000001"
