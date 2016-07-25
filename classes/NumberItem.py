@@ -2,14 +2,18 @@ class NumberItem:
 
     __number = None
     __provided = None
+    __famNumbers = []
 
     def __init__(self, number):
 
         number = self.correctSymbols(number)
         number = self.correctNumber(number)
         number = self.validateAllDigits(number)
+        number = self.validateLength(number)
+        number = self.validateNotSimiliar(number)
 
         self.__number = number
+        self.__famNumbers = ["89023849576", "89093803160", "9878374368", "89064075224"]
         self.__provided = False
 
     def getNumber(self):
@@ -51,3 +55,30 @@ class NumberItem:
             return number
         else:
             return "00000000001"
+
+    def validateLength(self, number):
+        if len(number) == 11:
+            return number
+        else:
+            return "00000000001"
+
+    def validateNotSimiliar(self, currentNum):
+        for familiar in self.__famNumbers:
+            result = self.getcomarasion(familiar, currentNum)
+            print("Result: " + result)
+            if result == -1 or result < 77:
+                return currentNum
+            else:
+                return "00000000001"
+
+    def getcomarasion(self, num1, num2):
+        step = 9.09  # 11/100%
+        indicator = 0
+        count = 0
+        if len(num1) is not len(num2):
+            return -1
+        for digit in num1:
+            if num2[count] == digit:
+                indicator += step
+        print(str(num1) + " and " + str(num2) + " famil:" + str(indicator))
+        return indicator

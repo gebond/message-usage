@@ -9,13 +9,13 @@ class NumberBook:
     def addNumber(self, numberItem):
         if self.__validateNumber(numberItem):
             self.__numbers.append(numberItem)
-            print("\t -> added " + numberItem.getNumber())
+            print("\t -> added " + str(numberItem.getNumber()))
 
 
     def __validateNumber(self, number):
         for num in self.__numbers:
             if num.getNumber() == number.getNumber():
-                print("\t -> already exists " + number.getNumber())
+                print("\t -> already exists " + str(number.getNumber()))
                 return False
         return True
 
@@ -23,5 +23,5 @@ class NumberBook:
         counter = 0
         for num in self.__numbers:
             counter += 1
-            print("# " + str(counter) + " " + num.getNumber())
+            print("# " + str(counter) + " " + str(num.getNumber()))
         print("total: " + str(counter) + " nums")

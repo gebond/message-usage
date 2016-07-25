@@ -5,6 +5,6 @@ print("Hello")
 
 manager = NumberManager()
 path = ".\\sourse-numbers\\"
-file = "tel1"
+file = "1_part"
 
-manager.readNumbers(file, path, " ")
+manager.readNumbers(file, path, "\t")
