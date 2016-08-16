@@ -8,7 +8,7 @@ class Telephone:
         self.__number = number
 
     def get(self):
-        return self.__number
+        return str(self.__number)
 
     def show(self):
-        print("TelNumber: [" + str(self.__number) + "]")
+        print("TelNumber: [" + self.get() + "]")
