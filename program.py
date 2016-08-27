@@ -1,10 +1,19 @@
-
-from classes.NumberManager import NumberManager
+from managers.FilesManager import FilesManager
 
 print("Hello")
+# ----- configuration ---------
 
-manager = NumberManager()
-path = ".\\sourse-numbers\\"
-file = "1_part"
+path = ".\\new-version-dir\\"
+fileWithSource = "source1"
+fileWithFamiliarNums = "famnums"
 
-manager.readNumbers(file, path, "\t")
+# ----- initiation ------------
+filesManager = FilesManager(path)
+
+# ----- call functions --------
+familiarPreNums = filesManager.readfile(fileWithFamiliarNums, delimeter=',')
+sourcePreNums = filesManager.readfile(fileWithSource, doubletry=True)
+
+# ----- results ---------------
+print("famNums:\n" + familiarPreNums)
+print("source:\n" + sourcePreNums)
