@@ -4,6 +4,9 @@ class TelephoneBook:
 
     __telephones = []
 
+    def __init__(self):
+        print("tel book activated!")
+
     def add(self, tel):
         if not self.exists(tel):
             self.__telephones.append(tel)
