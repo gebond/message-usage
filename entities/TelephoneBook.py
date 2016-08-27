@@ -19,6 +19,6 @@ class TelephoneBook:
         print("TelBook:")
         counter = 0
         for tel in self.__telephones:
-            print("# " + counter + " " + tel.get)
+            print("# " + counter + " " + tel.get())
             counter += 1
 
