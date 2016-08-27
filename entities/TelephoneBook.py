@@ -21,4 +21,3 @@ class TelephoneBook:
         for tel in self.__telephones:
             print("# " + counter + " " + tel.get())
             counter += 1
-
