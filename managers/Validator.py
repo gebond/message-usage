@@ -5,18 +5,21 @@ class Validator:
     @staticmethod
     def validate(itemsToValidate, familiarNums):
         startlen = itemsToValidate.__len__()
+        validatedItems = []
         print("do validate " + str(startlen) + " items")
         for item in itemsToValidate:
             # -------- 1 validation
             if not Validator.checkFamiliarUnique(item, familiarNums):
-                itemsToValidate.remove(item)
+                #itemsToValidate.remove(item)
                 continue
             # -------- 2 validation
             if not Validator.checkAllDigits(item):
-                itemsToValidate.remove(item)
+                #itemsToValidate.remove(item)
                 continue
             # -------- 3 validation
-        return itemsToValidate
+
+            validatedItems.append(item)
+        return validatedItems
 
         print(str(startlen - itemsToValidate.__len__()) + " items was delete\n")
         return itemsToValidate

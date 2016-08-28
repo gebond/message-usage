@@ -1,4 +1,4 @@
-
+from entities.Telephone import Telephone
 
 class TelephoneBook:
 
@@ -9,6 +9,7 @@ class TelephoneBook:
 
     def add(self, tel):
         if not self.exists(tel):
+            tel = Telephone
             self.__telephones.append(tel)
 
     def exists(self, newtel):

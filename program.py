@@ -24,9 +24,9 @@ telBook = TelephoneBook()
 familiarPreNums = filesManager.readfile(fileWithFamiliarNums, delimeter=',')
 sourcePreNums = filesManager.readfile(fileWithSource, doubletry=True)
 
-sourcePreNums = Validator.validate(Corrector.correct(Filter.dofilter(sourcePreNums)), familiarPreNums)
+resultSourceNums = Validator.validate(Corrector.correct(Filter.dofilter(sourcePreNums)), familiarPreNums)
 
 # ----- results ---------------
 print("\n#################### RESULTS ########################\n")
 print("famNums:\n" + familiarPreNums.__str__())
-print("source:\n" + sourcePreNums.__str__())
+print("source:\n" + resultSourceNums.__str__())
